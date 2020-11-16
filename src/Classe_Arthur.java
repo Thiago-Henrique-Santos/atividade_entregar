@@ -13,6 +13,6 @@ public class Classe_Arthur {
         System.out.println("Olá, Arthur Hélio de Oliveira Mathias.");
         System.out.println("Olá, Thiago Henrique dos Santos");
         System.out.println("Olá, Julia Corol dos Santos");
-
+        System.out.println("Olá, Natan Fernandes dos Santos.");
     }
 }
