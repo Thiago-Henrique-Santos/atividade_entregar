@@ -6,6 +6,7 @@ public class Classe_Thiago {
         System.out.println("Olá, Julia Corol dos Santos");
         System.out.println("Olá Natan Fernandes dos Santos");
         System.out.println("Olá Samantha Gabrielly Barroso");
+        
    }
     
 }

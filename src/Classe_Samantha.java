@@ -14,6 +14,7 @@ public class Classe_Samantha {
        System.out.println("Olá, Thiago Henrique dos Santos");
        System.out.println("Olá, Julia Corol dos Santos");
        System.out.println("Olá, Natan Fernandes dos Santos");
+       
 }
 
 }
