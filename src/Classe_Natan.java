@@ -14,6 +14,5 @@ public class Classe_Natan {
         System.out.println("Olá, Thiago Henrique dos Santos");
         System.out.println("Olá, Julia Corol dos Santos");
         System.out.println("Olá Samantha Gabrielly Barroso");
-        
    }
 }
