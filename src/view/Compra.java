@@ -15,6 +15,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
 import javax.persistence.NamedQueries;
 import javax.persistence.NamedQuery;
 import javax.persistence.Table;
@@ -28,14 +29,6 @@ import javax.persistence.Transient;
  */
 @Entity
 @Table(name = "compra", catalog = "db_relatorio_jogos", schema = "")
-@NamedQueries({
-    @NamedQuery(name = "Compra.findAll", query = "SELECT c FROM Compra c")
-    , @NamedQuery(name = "Compra.findByIdcompra", query = "SELECT c FROM Compra c WHERE c.idcompra = :idcompra")
-    , @NamedQuery(name = "Compra.findByData", query = "SELECT c FROM Compra c WHERE c.data = :data")
-    , @NamedQuery(name = "Compra.findByHora", query = "SELECT c FROM Compra c WHERE c.hora = :hora")
-    , @NamedQuery(name = "Compra.findByJogadorIdjogador", query = "SELECT c FROM Compra c WHERE c.jogadorIdjogador = :jogadorIdjogador")
-    , @NamedQuery(name = "Compra.findByLojaDeJogosidlojaDeJogos", query = "SELECT c FROM Compra c WHERE c.lojaDeJogosidlojaDeJogos = :lojaDeJogosidlojaDeJogos")
-    , @NamedQuery(name = "Compra.findByJogoIdjogo", query = "SELECT c FROM Compra c WHERE c.jogoIdjogo = :jogoIdjogo")})
 public class Compra implements Serializable {
 
     @Transient
@@ -53,12 +46,16 @@ public class Compra implements Serializable {
     @Column(name = "hora")
     @Temporal(TemporalType.TIME)
     private Date hora;
-    @Column(name = "jogador_idjogador")
-    private Integer jogadorIdjogador;
-    @Column(name = "lojaDeJogos_idlojaDeJogos")
-    private Integer lojaDeJogosidlojaDeJogos;
-    @Column(name = "jogo_idjogo")
-    private Integer jogoIdjogo;
+    
+    //Muitas compras podem ser feitas por um jogador
+    @ManyToOne
+    private Jogador jogador;
+    //Muitas compras podem ser feitas em uma loja
+    @ManyToOne
+    private Lojadejogos lojaDeJogos;
+    //Muitas compras podem incluir um (o mesmo) jogo
+    @ManyToOne
+    private Jogo jogo;
 
     public Compra() {
     }
@@ -97,34 +94,28 @@ public class Compra implements Serializable {
         changeSupport.firePropertyChange("hora", oldHora, hora);
     }
 
-    public Integer getJogadorIdjogador() {
-        return jogadorIdjogador;
+    public Jogador getJogador() {
+        return jogador;
     }
 
-    public void setJogadorIdjogador(Integer jogadorIdjogador) {
-        Integer oldJogadorIdjogador = this.jogadorIdjogador;
-        this.jogadorIdjogador = jogadorIdjogador;
-        changeSupport.firePropertyChange("jogadorIdjogador", oldJogadorIdjogador, jogadorIdjogador);
+    public void setJogador(Jogador jogador) {
+        this.jogador = jogador;
     }
 
-    public Integer getLojaDeJogosidlojaDeJogos() {
-        return lojaDeJogosidlojaDeJogos;
+    public Lojadejogos getLojaDeJogos() {
+        return lojaDeJogos;
     }
 
-    public void setLojaDeJogosidlojaDeJogos(Integer lojaDeJogosidlojaDeJogos) {
-        Integer oldLojaDeJogosidlojaDeJogos = this.lojaDeJogosidlojaDeJogos;
-        this.lojaDeJogosidlojaDeJogos = lojaDeJogosidlojaDeJogos;
-        changeSupport.firePropertyChange("lojaDeJogosidlojaDeJogos", oldLojaDeJogosidlojaDeJogos, lojaDeJogosidlojaDeJogos);
+    public void setLojaDeJogos(Lojadejogos lojaDeJogos) {
+        this.lojaDeJogos = lojaDeJogos;
     }
 
-    public Integer getJogoIdjogo() {
-        return jogoIdjogo;
+    public Jogo getJogo() {
+        return jogo;
     }
 
-    public void setJogoIdjogo(Integer jogoIdjogo) {
-        Integer oldJogoIdjogo = this.jogoIdjogo;
-        this.jogoIdjogo = jogoIdjogo;
-        changeSupport.firePropertyChange("jogoIdjogo", oldJogoIdjogo, jogoIdjogo);
+    public void setJogo(Jogo jogo) {
+        this.jogo = jogo;
     }
 
     @Override
