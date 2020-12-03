@@ -102,7 +102,7 @@ public class JFrmCadJogo extends JPanel {
 
         deleteButton.addActionListener(formListener);
 
-        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ação", "Aventura", "Luta", "FPS", "RPG", "Construção", "Vida Virtual", "Casual", "Música ou rítimo", "Esportes", "Simulação", "Corrida", "Tabuleiro eletrônico", "MOBA", "MMO", "Trívia", "Endeless Game" }));
+        jComboBox1.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Ação", "Aventura", "Luta", "FPS", "RPG", "Construção", "Vida Virtual", "Casual", "Música", "Esportes", "Simulação", "Corrida", "Jogos de Tabuleiro", "MOBA", "MMO", "Trívia", "Endeless Game", "Cartas", "Crianças", "Estratégia", "Família", "Indie", "Jogos AR", "Palavras", "Quebra-cabeça" }));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
