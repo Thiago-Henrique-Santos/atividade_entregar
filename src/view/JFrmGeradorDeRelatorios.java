@@ -124,18 +124,18 @@ public class JFrmGeradorDeRelatorios extends javax.swing.JFrame {
                 .addContainerGap())
         );
 
-        jButton1.setText("Modelo Wizard");
+        jButton1.setText("Modelo Wizard 1");
 
-        jButton3.setText("Modelo Blank");
+        jButton3.setText("Modelo Wizard 2");
 
-        jButton4.setText("Dados das 4 tabelas");
+        jButton4.setText("Modelo Blank");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton4ActionPerformed(evt);
             }
         });
 
-        jButton5.setText("Parâmetros para consulta");
+        jButton5.setText("Dados das 4 tabelas");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
