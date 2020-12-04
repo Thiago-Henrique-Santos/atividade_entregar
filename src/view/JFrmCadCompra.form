@@ -108,8 +108,10 @@
     <DimensionLayout dim="0">
       <Group type="103" groupAlignment="0" attributes="0">
           <Group type="102" attributes="0">
+              <EmptySpace max="-2" attributes="0"/>
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="1" attributes="0">
+                      <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                       <Component id="newButton" linkSize="1" min="-2" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="deleteButton" linkSize="1" min="-2" max="-2" attributes="0"/>
@@ -119,30 +121,25 @@
                       <Component id="saveButton" linkSize="1" min="-2" max="-2" attributes="0"/>
                   </Group>
                   <Group type="102" attributes="0">
+                      <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="idcompraLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="dataLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="horaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jogadorIdjogadorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="lojaDeJogosidlojaDeJogosLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                          <Component id="jogoIdjogoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                      </Group>
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
-                          <Group type="102" attributes="0">
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="idcompraLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="dataLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="horaLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jogadorIdjogadorLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="lojaDeJogosidlojaDeJogosLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="jogoIdjogoLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                              </Group>
-                              <EmptySpace max="-2" attributes="0"/>
-                              <Group type="103" groupAlignment="0" attributes="0">
-                                  <Component id="idcompraField" alignment="0" pref="391" max="32767" attributes="0"/>
-                                  <Component id="jComboBox1" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jComboBox4" max="32767" attributes="0"/>
-                                  <Component id="jComboBox5" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jFormattedTextField1" alignment="1" max="32767" attributes="0"/>
-                                  <Component id="jFormattedTextField2" alignment="1" max="32767" attributes="0"/>
-                              </Group>
-                          </Group>
-                          <Component id="masterScrollPane" pref="380" max="32767" attributes="0"/>
+                          <Component id="idcompraField" alignment="0" pref="391" max="32767" attributes="0"/>
+                          <Component id="jComboBox1" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jComboBox4" max="32767" attributes="0"/>
+                          <Component id="jComboBox5" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jFormattedTextField1" alignment="1" max="32767" attributes="0"/>
+                          <Component id="jFormattedTextField2" alignment="1" max="32767" attributes="0"/>
                       </Group>
                   </Group>
+                  <Component id="masterScrollPane" pref="380" max="32767" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
           </Group>
