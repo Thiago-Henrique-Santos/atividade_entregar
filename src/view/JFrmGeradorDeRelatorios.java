@@ -5,6 +5,10 @@
  */
 package view;
 
+import net.sf.jasperreports.engine.JasperFillManager;
+import net.sf.jasperreports.engine.JasperPrint;
+import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
+
 /**
  *
  * @author Paulo
@@ -27,6 +31,15 @@ public class JFrmGeradorDeRelatorios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        queryJogador = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("select player from Jogador player");
+        listJogador = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : org.jdesktop.observablecollections.ObservableCollections.observableList(queryJogador.getResultList());
+        queryJogo = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("select game from Jogo game");
+        listJogo = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : org.jdesktop.observablecollections.ObservableCollections.observableList(queryJogo.getResultList());
+        queryLojaDeJogo = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("select loja from Lojadejogos loja");
+        listLojaDeJogo = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : org.jdesktop.observablecollections.ObservableCollections.observableList(queryLojaDeJogo.getResultList());
+        queryCompra = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("select c from Compra c");
+        listCompra = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : org.jdesktop.observablecollections.ObservableCollections.observableList(queryCompra.getResultList());
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("db_relatorio_jogos?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
         jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -181,11 +194,11 @@ public class JFrmGeradorDeRelatorios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        // TODO add your handling code here:
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        //Botão do relatório das 4 tabelas
+        //TODO all your code - Thiago escrevendo kkk
     }//GEN-LAST:event_jButton4ActionPerformed
 
     /**
@@ -224,6 +237,7 @@ public class JFrmGeradorDeRelatorios extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.persistence.EntityManager entityManager;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
@@ -235,5 +249,13 @@ public class JFrmGeradorDeRelatorios extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
+    private java.util.List<Compra> listCompra;
+    private java.util.List<Jogador> listJogador;
+    private java.util.List<Jogo> listJogo;
+    private java.util.List<Lojadejogos> listLojaDeJogo;
+    private javax.persistence.Query queryCompra;
+    private javax.persistence.Query queryJogador;
+    private javax.persistence.Query queryJogo;
+    private javax.persistence.Query queryLojaDeJogo;
     // End of variables declaration//GEN-END:variables
 }
