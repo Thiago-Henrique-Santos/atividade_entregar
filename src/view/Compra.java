@@ -99,7 +99,9 @@ public class Compra implements Serializable {
     }
 
     public void setJogador(Jogador jogador) {
+        Jogador oldJogador = this.jogador;
         this.jogador = jogador;
+        changeSupport.firePropertyChange("jogador", oldJogador, jogador);
     }
 
     public Lojadejogos getLojaDeJogos() {
@@ -107,7 +109,9 @@ public class Compra implements Serializable {
     }
 
     public void setLojaDeJogos(Lojadejogos lojaDeJogos) {
+        Lojadejogos oldLojaDeJogos = this.lojaDeJogos;
         this.lojaDeJogos = lojaDeJogos;
+        changeSupport.firePropertyChange("lojaDeJogos", oldLojaDeJogos, lojaDeJogos);
     }
 
     public Jogo getJogo() {
@@ -115,7 +119,9 @@ public class Compra implements Serializable {
     }
 
     public void setJogo(Jogo jogo) {
+        Jogo oldJogo = this.jogo;
         this.jogo = jogo;
+        changeSupport.firePropertyChange("jogo", oldJogo, jogo);
     }
 
     @Override

@@ -139,7 +139,7 @@ public class Jogador implements Serializable {
 
     @Override
     public String toString() {
-        return "view.Jogador[ idjogador=" + idjogador + " ]";
+        return nome;
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {

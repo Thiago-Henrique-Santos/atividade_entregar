@@ -127,7 +127,7 @@ public class Lojadejogos implements Serializable {
 
     @Override
     public String toString() {
-        return "view.Lojadejogos[ idlojaDeJogos=" + idlojaDeJogos + " ]";
+        return nome;
     }
 
     public void addPropertyChangeListener(PropertyChangeListener listener) {
