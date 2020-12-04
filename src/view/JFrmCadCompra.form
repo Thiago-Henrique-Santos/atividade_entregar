@@ -402,6 +402,7 @@
         <Property name="toolTipText" type="java.lang.String" value="__/__/__"/>
       </Properties>
       <BindingProperties>
+        <BindingProperty name="value" source="masterTable" sourcePath="${selectedElement.data}" target="jFormattedTextField1" targetPath="value" updateStrategy="0" immediately="false"/>
         <BindingProperty name="enabled" source="masterTable" sourcePath="${selectedElement != null}" target="jFormattedTextField1" targetPath="enabled" updateStrategy="0" immediately="false"/>
       </BindingProperties>
       <Events>
@@ -416,6 +417,7 @@
         <Property name="toolTipText" type="java.lang.String" value="00:00"/>
       </Properties>
       <BindingProperties>
+        <BindingProperty name="value" source="masterTable" sourcePath="${selectedElement.hora}" target="jFormattedTextField2" targetPath="value" updateStrategy="0" immediately="false"/>
         <BindingProperty name="enabled" source="masterTable" sourcePath="${selectedElement != null}" target="jFormattedTextField2" targetPath="enabled" updateStrategy="0" immediately="false"/>
       </BindingProperties>
     </Component>
