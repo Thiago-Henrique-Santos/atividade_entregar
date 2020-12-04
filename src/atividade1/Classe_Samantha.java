@@ -1,3 +1,5 @@
+package atividade1;
+
 /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
@@ -16,6 +18,6 @@ public class Classe_Samantha {
        System.out.println("Olá, Natan Fernandes dos Santos");
         System.out.println("Olá, Arthur Hélio de Oliveira Mathias");
     }
-        
+       
        
 }
