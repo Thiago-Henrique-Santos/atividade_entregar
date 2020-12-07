@@ -36,7 +36,7 @@ public class JFrmCadJogador extends JPanel {
     private void initComponents() {
         bindingGroup = new org.jdesktop.beansbinding.BindingGroup();
 
-        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("db_relatorio_jogos?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("AtividadeRelatoriosPU").createEntityManager();
         query = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("SELECT j FROM Jogador j");
         list = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : org.jdesktop.observablecollections.ObservableCollections.observableList(query.getResultList());
         masterScrollPane = new javax.swing.JScrollPane();
@@ -220,7 +220,10 @@ public class JFrmCadJogador extends JPanel {
     private class FormListener implements java.awt.event.ActionListener {
         FormListener() {}
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            if (evt.getSource() == saveButton) {
+            if (evt.getSource() == nomeField) {
+                JFrmCadJogador.this.nomeFieldActionPerformed(evt);
+            }
+            else if (evt.getSource() == saveButton) {
                 JFrmCadJogador.this.saveButtonActionPerformed(evt);
             }
             else if (evt.getSource() == refreshButton) {
@@ -231,9 +234,6 @@ public class JFrmCadJogador extends JPanel {
             }
             else if (evt.getSource() == deleteButton) {
                 JFrmCadJogador.this.deleteButtonActionPerformed(evt);
-            }
-            else if (evt.getSource() == nomeField) {
-                JFrmCadJogador.this.nomeFieldActionPerformed(evt);
             }
         }
     }// </editor-fold>//GEN-END:initComponents

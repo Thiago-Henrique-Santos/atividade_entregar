@@ -35,7 +35,7 @@ public class JFrmGeradorDeRelatorios extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("db_relatorio_jogos?zeroDateTimeBehavior=convertToNullPU").createEntityManager();
+        entityManager = java.beans.Beans.isDesignTime() ? null : javax.persistence.Persistence.createEntityManagerFactory("AtividadeRelatoriosPU").createEntityManager();
         queryJogador = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("select p from Jogador p");
         listJogador = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : org.jdesktop.observablecollections.ObservableCollections.observableList(queryJogador.getResultList());
         queryJogo = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("select g from Jogo g");
@@ -198,35 +198,38 @@ public class JFrmGeradorDeRelatorios extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-        //Criando uma variável do tipo JRBeanCollectionDataSource (uma classe de relatórios). O JRBeanCollectionDataSource converte o resultado da sua lista de resultado do
+        
+//Criando uma variável do tipo JRBeanCollectionDataSource (uma classe de relatórios). O JRBeanCollectionDataSource converte o resultado da sua lista de resultado do
         //banco dados em uma fonte de dados para imprimí-los no relatório.
-        /*
-        ==Parâmetros do JRBeanCollectionDataSource() -> JRBeanCollectionDataSource(lista de resultados do banco de dados, isUseFieldDescription)
-        listCompra -> usando a lista de resultados da tabela compra do banco de dados
-        false -> não iremos usar o campo de descrição
-        */
+        
+//        ==Parâmetros do JRBeanCollectionDataSource() -> JRBeanCollectionDataSource(lista de resultados do banco de dados, isUseFieldDescription)
+//        listCompra -> usando a lista de resultados da tabela compra do banco de dados
+//        false -> não iremos usar o campo de descrição
+//        
         JRBeanCollectionDataSource dados = new JRBeanCollectionDataSource(listCompra, false);
         try {
             //Criando uma variável do tipo JasperPrint (uma classe de relatórios) que preenche o relatório com os dados desejados
-            /*
-            ==Parâmetros do JasperFillManager.fillReport() -> JasperFillManager.fillReport("endereçoDoRelatorio", parâmetros, dados a serem inseridos)
-            "./relatorios/relatorio_geral.jasper" -> endereço do relatório de 4 tabelas com relaçaõ ao JFrame que estamos utilizando
-            null -> não iremos enviar nenhum parâmetro
-            dados -> dados guardados na variável dados, do tipo JRBeanCollectionDataSource
-            */
+            
+//            ==Parâmetros do JasperFillManager.fillReport() -> JasperFillManager.fillReport("endereçoDoRelatorio", parâmetros, dados a serem inseridos)
+//            "./relatorios/relatorio_geral.jasper" -> endereço do relatório de 4 tabelas com relaçaõ ao JFrame que estamos utilizando
+//            null -> não iremos enviar nenhum parâmetro
+//            dados -> dados guardados na variável dados, do tipo JRBeanCollectionDataSource
+//            
             JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/relatorio_geral.jasper", null, dados);
             //Criando uma variável do tipo JasperViewer (uma classe de relatorio). O JasperViewer serve para poder visualizar o relatório
-            /*
-            ==Parâmetro do JasperViewer() -> JasperViewer(JasperPrint, isExitOnClose)
-            relatorio -> variável JasperPrint, responsável por imprimir os dados no relatório
-            false - não sair do programa ao fechar o relatório
-            */
+            
+//            ==Parâmetro do JasperViewer() -> JasperViewer(JasperPrint, isExitOnClose)
+//            relatorio -> variável JasperPrint, responsável por imprimir os dados no relatório
+//            false - não sair do programa ao fechar o relatório
+//            
             JasperViewer visualizador = new JasperViewer(relatorio, false);
             //Mostrando o relatório (deixando ele visíveel)
             visualizador.setVisible(true);
         } catch (JRException ex) {
             Logger.getLogger(JFrmGeradorDeRelatorios.class.getName()).log(Level.SEVERE, null, ex);
         }
+        
+        
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
