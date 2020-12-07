@@ -22,7 +22,7 @@ public class Conexao {
     private Conexao() {}
     
     public static Connection getConexao(){
-        if (conexao == null){
+       if (conexao == null){
             try {
                 Class.forName("com.mysql.jdbc.Driver");
                 conexao = DriverManager.getConnection("jdbc:mysql://localhost/db_relatorio_jogos", "root", "");

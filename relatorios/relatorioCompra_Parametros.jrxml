@@ -42,21 +42,17 @@ where jogador.nome like $P{param_nome}]]>
 	</background>
 	<title>
 		<band height="132" splitType="Stretch">
-			<image>
-				<reportElement x="456" y="0" width="99" height="132" uuid="77e5b338-e1bf-4074-be65-cd935f7b1a2e"/>
-				<imageExpression><![CDATA["cherry.jpg"]]></imageExpression>
-			</image>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="0" width="451" height="95" backcolor="#000000" uuid="d4baf8be-6e6b-4f56-9bd7-d607621611d3"/>
+				<reportElement mode="Opaque" x="4" y="0" width="551" height="100" backcolor="#FF6600" uuid="d4baf8be-6e6b-4f56-9bd7-d607621611d3"/>
 				<staticText>
-					<reportElement style="Title" x="50" y="0" width="383" height="66" uuid="86ef3fdf-c230-487f-89ba-6e56627226e7"/>
+					<reportElement style="Title" x="93" y="0" width="383" height="66" uuid="86ef3fdf-c230-487f-89ba-6e56627226e7"/>
 					<textElement textAlignment="Justified">
 						<font size="40" isBold="true" isUnderline="true"/>
 					</textElement>
 					<text><![CDATA[Relatório de Compras]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="SubTitle" x="119" y="66" width="249" height="29" uuid="638e2801-4eaa-4486-9560-9bc0d0f54f62"/>
+					<reportElement style="SubTitle" x="161" y="66" width="249" height="29" uuid="638e2801-4eaa-4486-9560-9bc0d0f54f62"/>
 					<textElement>
 						<font size="22" isBold="false" isItalic="true"/>
 					</textElement>
@@ -64,7 +60,7 @@ where jogador.nome like $P{param_nome}]]>
 				</staticText>
 			</frame>
 			<frame>
-				<reportElement mode="Opaque" x="0" y="100" width="451" height="32" forecolor="#000000" backcolor="#CC0000" uuid="9f8a716a-f3c4-4b2d-b677-7b8264fddf1e"/>
+				<reportElement mode="Opaque" x="4" y="100" width="551" height="32" forecolor="#000000" backcolor="#660066" uuid="9f8a716a-f3c4-4b2d-b677-7b8264fddf1e"/>
 				<textField pattern="EEEEE dd MMMMM yyyy">
 					<reportElement x="307" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="80b3f0d8-07a8-4328-9de0-7591b33fe437"/>
 					<textElement textAlignment="Right">
@@ -83,42 +79,42 @@ where jogador.nome like $P{param_nome}]]>
 			<staticText>
 				<reportElement style="Column header" x="0" y="7" width="73" height="18" forecolor="#000000" uuid="8f90ab9c-5fa2-4f7a-b203-b324f5396643"/>
 				<textElement>
-					<font isBold="false"/>
+					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Código(Id)]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="73" y="7" width="92" height="18" forecolor="#000000" uuid="2f6b8ad7-277e-4dc7-a86d-d1f3a778eee5"/>
 				<textElement>
-					<font isBold="false"/>
+					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Data]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="165" y="7" width="92" height="18" forecolor="#000000" uuid="392bd8be-ea8d-45ab-8ee5-34e3e4950a73"/>
 				<textElement>
-					<font isBold="false"/>
+					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Hora]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="257" y="7" width="92" height="18" forecolor="#000000" uuid="cb900119-ed02-4a73-9878-5a1c3b241a4c"/>
 				<textElement>
-					<font isBold="false"/>
+					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Jogador]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="349" y="8" width="92" height="18" forecolor="#000000" uuid="8f638075-0bc8-4e4f-9f3a-1d4a12b9da2a"/>
 				<textElement>
-					<font isBold="false"/>
+					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Jogo]]></text>
 			</staticText>
 			<staticText>
 				<reportElement style="Column header" x="441" y="7" width="102" height="18" forecolor="#000000" uuid="fafbcea6-53a4-499b-b7e2-b3e5fc69b94a"/>
 				<textElement>
-					<font isBold="false"/>
+					<font isBold="true"/>
 				</textElement>
 				<text><![CDATA[Loja]]></text>
 			</staticText>
