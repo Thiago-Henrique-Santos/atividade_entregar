@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fa279f12-dbae-4ac0-bde4-78c575cef44f">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#CCCCCC" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<parameter name="param_nome" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT
+     compra.`idcompra` AS compra_idcompra,
+     compra.`data` AS compra_data,
+     compra.`hora` AS compra_hora,
+     jogador.`nome` AS jogador_nome,
+     jogo.`nome` AS jogo_nome,
+     lojadejogos.`nome` AS lojadejogos_nome
+FROM
+     `jogador` jogador INNER JOIN `compra` compra ON jogador.`idjogador` = compra.`jogador_idjogador`
+     INNER JOIN `jogo` jogo ON compra.`jogo_idjogo` = jogo.`idjogo`
+     INNER JOIN `lojadejogos` lojadejogos ON compra.`lojaDeJogos_idlojaDeJogos` = lojadejogos.`idlojaDeJogos`
+
+where jogador.nome like $P{param_nome}]]>
+	</queryString>
+	<field name="compra_idcompra" class="java.lang.Integer"/>
+	<field name="compra_data" class="java.sql.Date"/>
+	<field name="compra_hora" class="java.sql.Time"/>
+	<field name="jogador_nome" class="java.lang.String"/>
+	<field name="jogo_nome" class="java.lang.String"/>
+	<field name="lojadejogos_nome" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="132" splitType="Stretch">
+			<image>
+				<reportElement x="456" y="0" width="99" height="132" uuid="77e5b338-e1bf-4074-be65-cd935f7b1a2e"/>
+				<imageExpression><![CDATA["cherry.jpg"]]></imageExpression>
+			</image>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="0" width="451" height="95" backcolor="#000000" uuid="d4baf8be-6e6b-4f56-9bd7-d607621611d3"/>
+				<staticText>
+					<reportElement style="Title" x="50" y="0" width="383" height="66" uuid="86ef3fdf-c230-487f-89ba-6e56627226e7"/>
+					<textElement textAlignment="Justified">
+						<font size="40" isBold="true" isUnderline="true"/>
+					</textElement>
+					<text><![CDATA[Relatório de Compras]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="SubTitle" x="119" y="66" width="249" height="29" uuid="638e2801-4eaa-4486-9560-9bc0d0f54f62"/>
+					<textElement>
+						<font size="22" isBold="false" isItalic="true"/>
+					</textElement>
+					<text><![CDATA[Passagem de Parâmetro]]></text>
+				</staticText>
+			</frame>
+			<frame>
+				<reportElement mode="Opaque" x="0" y="100" width="451" height="32" forecolor="#000000" backcolor="#CC0000" uuid="9f8a716a-f3c4-4b2d-b677-7b8264fddf1e"/>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement x="307" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="80b3f0d8-07a8-4328-9de0-7591b33fe437"/>
+					<textElement textAlignment="Right">
+						<font size="12"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="26" splitType="Stretch">
+			<staticText>
+				<reportElement style="Column header" x="0" y="7" width="73" height="18" forecolor="#000000" uuid="8f90ab9c-5fa2-4f7a-b203-b324f5396643"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Código(Id)]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="73" y="7" width="92" height="18" forecolor="#000000" uuid="2f6b8ad7-277e-4dc7-a86d-d1f3a778eee5"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Data]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="165" y="7" width="92" height="18" forecolor="#000000" uuid="392bd8be-ea8d-45ab-8ee5-34e3e4950a73"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Hora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="257" y="7" width="92" height="18" forecolor="#000000" uuid="cb900119-ed02-4a73-9878-5a1c3b241a4c"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Jogador]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="349" y="8" width="92" height="18" forecolor="#000000" uuid="8f638075-0bc8-4e4f-9f3a-1d4a12b9da2a"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Jogo]]></text>
+			</staticText>
+			<staticText>
+				<reportElement style="Column header" x="441" y="7" width="102" height="18" forecolor="#000000" uuid="fafbcea6-53a4-499b-b7e2-b3e5fc69b94a"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[Loja]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement style="Row" mode="Opaque" x="0" y="0" width="555" height="18" uuid="ba6d9689-477d-4d7d-b145-2f9a3f0e58b5"/>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="73" height="18" uuid="e43f6bd2-7b3b-42c4-a5f0-c5f06d854a21"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{compra_idcompra}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="dd/MM/yyyy">
+					<reportElement style="Detail" positionType="Float" x="73" y="0" width="92" height="18" uuid="7b47e767-b8f5-462d-b15d-d3668ff50373"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{compra_data}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" pattern="HH:mm">
+					<reportElement style="Detail" positionType="Float" x="165" y="0" width="92" height="18" uuid="6d1e924d-58b1-4de7-a9e1-18578d0aa612"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{compra_hora}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="257" y="0" width="92" height="18" uuid="b40b97b9-e15e-4317-ae04-2420fb6e6c29"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{jogador_nome}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="349" y="0" width="92" height="18" uuid="9bd7ee50-a900-411b-8d40-8c1b0b51bb25"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{jogo_nome}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true">
+					<reportElement style="Detail" positionType="Float" x="441" y="0" width="102" height="18" uuid="3f242120-21ff-4648-83d5-8c9cf57b1697"/>
+					<textElement>
+						<font size="14"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{lojadejogos_nome}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="582d0f5e-e4c8-46a9-9e1a-e79a47452e5a"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="25" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="0" y="1" width="555" height="24" forecolor="#D0B48E" backcolor="#000000" uuid="0ba40002-d73f-4c48-aedf-9b6795c5b18b"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="513" y="0" width="40" height="20" forecolor="#FFFFFF" uuid="e354d2bb-39ee-43d2-bc58-5f07b2f54e78"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="433" y="0" width="80" height="20" forecolor="#FFFFFF" uuid="4db3cb7b-1048-4135-8646-0030f5e4d8d9"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="1" width="197" height="20" forecolor="#FFFFFF" uuid="823b856f-ebf1-4c5e-b668-855599b92e33"/>
+					<textElement verticalAlignment="Middle">
+						<font size="10" isBold="false"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
