@@ -142,6 +142,11 @@ public class JFrmGeradorDeRelatorios extends javax.swing.JFrame {
         );
 
         jButton1.setText("Modelo Wizard 1");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
 
         jButton3.setText("Modelo Wizard 2");
 
@@ -233,8 +238,35 @@ public class JFrmGeradorDeRelatorios extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        //TODO all your code - Thiago escrevendo kkk
+        JRBeanCollectionDataSource dados = new JRBeanCollectionDataSource(listCompra, false);
+        try {
+            
+            JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/relatorioBlank.jasper", null, dados);
+            
+//            
+            JasperViewer visualizador = new JasperViewer(relatorio, false);
+        
+            visualizador.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(JFrmGeradorDeRelatorios.class.getName()).log(Level.SEVERE, null, ex); //
+        }
+            
     }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        JRBeanCollectionDataSource dados = new JRBeanCollectionDataSource(listJogador, false);
+        try {
+            
+            JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/relatorioWizard1.jasper", null, dados);
+            
+//            
+            JasperViewer visualizador = new JasperViewer(relatorio, false);
+        
+            visualizador.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(JFrmGeradorDeRelatorios.class.getName()).log(Level.SEVERE, null, ex);
+        }// TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
