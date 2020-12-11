@@ -3,6 +3,31 @@
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     compra.`idcompra` AS idcompra,
+     compra.`data` AS data,
+     compra.`hora` AS hora,
+     jogador.`nome` AS 'jogador.nome',
+     jogo.`nome` AS 'jogo.nome',
+     lojadejogos.`nome` AS 'lojaDeJogos.nome'
+FROM
+     `jogador` jogador INNER JOIN `compra` compra ON jogador.`idjogador` = compra.`jogador_idjogador`
+     INNER JOIN `jogo` jogo ON compra.`jogo_idjogo` = jogo.`idjogo`
+     INNER JOIN `lojadejogos` lojadejogos ON compra.`lojaDeJogos_idlojaDeJogos` = lojadejogos.`idlojaDeJogos`]]>
+	</queryString>
+	<field name="idcompra" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="data" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="hora" class="java.sql.Time">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="jogador.nome" class="java.lang.String"/>
+	<field name="jogo.nome" class="java.lang.String"/>
+	<field name="lojaDeJogos.nome" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -11,53 +36,67 @@
 			<staticText>
 				<reportElement x="0" y="0" width="555" height="79" uuid="da1e8a12-66f9-4497-8675-2f83151cc6b7"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Aharoni" size="26"/>
+					<font fontName="Arial" size="26" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Relatório de Compra de Jogos]]></text>
 			</staticText>
 		</band>
 	</title>
 	<columnHeader>
-		<band height="61" splitType="Stretch">
+		<band height="26" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="100" height="20" uuid="62395c53-9ce6-40a2-bbbc-169370b6b44e"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[ID da compra]]></text>
+				<reportElement x="0" y="2" width="100" height="20" uuid="3dbdcc27-eaff-4430-a4c3-218b14011887"/>
+				<text><![CDATA[idcompra]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="113" y="0" width="100" height="20" uuid="4befbb2e-7736-43c2-aa08-8b5c727aef40"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Data]]></text>
+				<reportElement x="100" y="2" width="100" height="20" uuid="44460922-1af3-46ae-b5be-8e71a101cc5d"/>
+				<text><![CDATA[data]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="225" y="0" width="100" height="20" uuid="90d9f97c-2db0-418b-813f-fae2763fd032"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Hora]]></text>
+				<reportElement x="200" y="2" width="100" height="20" uuid="8f4cc88f-4c50-4fa3-b244-5631d6d36c61"/>
+				<text><![CDATA[hora]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="338" y="0" width="100" height="20" uuid="3ab29afd-c2c9-4c0d-a4dd-3d6499adfc44"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Jogador]]></text>
+				<reportElement x="300" y="2" width="100" height="20" uuid="dff7e918-0b28-4630-8e16-115fd25d61b2"/>
+				<text><![CDATA[jogador.nome]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="452" y="0" width="103" height="20" uuid="dbcd4fbf-5bef-4e3a-a413-4eef520b3cf8"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="12"/>
-				</textElement>
-				<text><![CDATA[Jogo]]></text>
+				<reportElement x="400" y="0" width="100" height="20" uuid="0d4185d8-15ce-4cd6-ac91-ab14c57a7deb"/>
+				<text><![CDATA[jogo.nome]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="500" y="2" width="45" height="20" uuid="77c80efa-a30d-4f7a-b556-238084f6c64e"/>
+				<text><![CDATA[lojaDeJogos.nome]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="125" splitType="Stretch"/>
+		<band height="23" splitType="Stretch">
+			<textField>
+				<reportElement x="0" y="1" width="100" height="20" uuid="ac95daf3-a605-4b89-a970-a56231e65c2d"/>
+				<textFieldExpression><![CDATA[$F{idcompra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="100" y="0" width="100" height="20" uuid="754fd84b-6191-4995-8e9e-549214e678e3"/>
+				<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="200" y="1" width="100" height="20" uuid="1705c3d9-77a6-4351-a724-a9713434d092"/>
+				<textFieldExpression><![CDATA[$F{hora}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="300" y="1" width="100" height="20" uuid="f52dcfb4-6aca-400f-a9e4-60416053235f"/>
+				<textFieldExpression><![CDATA[$F{jogador.nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="400" y="1" width="100" height="20" uuid="95de27d0-53a6-4d46-bb3e-b6f79f8feefa"/>
+				<textFieldExpression><![CDATA[$F{jogo.nome}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="500" y="0" width="55" height="20" uuid="de396dec-f506-455f-83ed-9e054d4350a3"/>
+				<textFieldExpression><![CDATA[$F{lojaDeJogos.nome}]]></textFieldExpression>
+			</textField>
+		</band>
 	</detail>
 	<columnFooter>
 		<band height="45" splitType="Stretch"/>
