@@ -149,6 +149,11 @@ public class JFrmGeradorDeRelatorios extends javax.swing.JFrame {
         });
 
         jButton3.setText("Modelo Wizard 2");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
 
         jButton4.setText("Modelo Blank");
         jButton4.addActionListener(new java.awt.event.ActionListener() {
@@ -267,6 +272,21 @@ public class JFrmGeradorDeRelatorios extends javax.swing.JFrame {
             Logger.getLogger(JFrmGeradorDeRelatorios.class.getName()).log(Level.SEVERE, null, ex);
         }// TODO add your handling code here:
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+     JRBeanCollectionDataSource dados = new JRBeanCollectionDataSource(listJogo, false);
+        try {
+            
+            JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/relatorioWizard2.jasper", null, dados);
+            
+//            
+            JasperViewer visualizador = new JasperViewer(relatorio, false);
+        
+            visualizador.setVisible(true);
+        } catch (JRException ex) {
+            Logger.getLogger(JFrmGeradorDeRelatorios.class.getName()).log(Level.SEVERE, null, ex); //
+        }
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     /**
      * @param args the command line arguments
