@@ -43,7 +43,7 @@ where jogador.nome like $P{param_nome}]]>
 	<title>
 		<band height="132" splitType="Stretch">
 			<frame>
-				<reportElement mode="Opaque" x="4" y="0" width="551" height="100" backcolor="#FF6600" uuid="d4baf8be-6e6b-4f56-9bd7-d607621611d3"/>
+				<reportElement mode="Opaque" x="2" y="0" width="551" height="100" backcolor="#009999" uuid="d4baf8be-6e6b-4f56-9bd7-d607621611d3"/>
 				<staticText>
 					<reportElement style="Title" x="93" y="0" width="383" height="66" uuid="86ef3fdf-c230-487f-89ba-6e56627226e7"/>
 					<textElement textAlignment="Justified">
@@ -52,15 +52,15 @@ where jogador.nome like $P{param_nome}]]>
 					<text><![CDATA[Relatório de Compras]]></text>
 				</staticText>
 				<staticText>
-					<reportElement style="SubTitle" x="161" y="66" width="249" height="29" uuid="638e2801-4eaa-4486-9560-9bc0d0f54f62"/>
+					<reportElement style="SubTitle" x="163" y="66" width="268" height="29" uuid="638e2801-4eaa-4486-9560-9bc0d0f54f62"/>
 					<textElement>
-						<font size="22" isBold="false" isItalic="true"/>
+						<font size="20" isBold="true" isItalic="true"/>
 					</textElement>
-					<text><![CDATA[Passagem de Parâmetro]]></text>
+					<text><![CDATA[Passagem de Parâmetro (nome)]]></text>
 				</staticText>
 			</frame>
 			<frame>
-				<reportElement mode="Opaque" x="4" y="100" width="551" height="32" forecolor="#000000" backcolor="#660066" uuid="9f8a716a-f3c4-4b2d-b677-7b8264fddf1e"/>
+				<reportElement mode="Opaque" x="2" y="100" width="551" height="32" forecolor="#000000" backcolor="#999999" uuid="9f8a716a-f3c4-4b2d-b677-7b8264fddf1e"/>
 				<textField pattern="EEEEE dd MMMMM yyyy">
 					<reportElement x="307" y="12" width="144" height="20" forecolor="#FFFFFF" uuid="80b3f0d8-07a8-4328-9de0-7591b33fe437"/>
 					<textElement textAlignment="Right">
