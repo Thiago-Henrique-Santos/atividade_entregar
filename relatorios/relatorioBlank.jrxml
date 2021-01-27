@@ -1,100 +1,68 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="a12fa059-0b6c-4c89-80f7-76c2f9215f86">
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e09c718b-ac98-47da-b7f7-9c3c327d817e">
 	<property name="ireport.zoom" value="1.0"/>
 	<property name="ireport.x" value="0"/>
 	<property name="ireport.y" value="0"/>
 	<queryString>
 		<![CDATA[SELECT
-     compra.`idcompra` AS idcompra,
-     compra.`data` AS data,
-     compra.`hora` AS hora,
-     jogador.`nome` AS 'jogador.nome',
-     jogo.`nome` AS 'jogo.nome',
-     lojadejogos.`nome` AS 'lojaDeJogos.nome'
+     usuario.`idusuario` AS idusuario,
+     usuario.`login` AS login,
+     usuario.`senha` AS senha
 FROM
-     `jogador` jogador INNER JOIN `compra` compra ON jogador.`idjogador` = compra.`jogador_idjogador`
-     INNER JOIN `jogo` jogo ON compra.`jogo_idjogo` = jogo.`idjogo`
-     INNER JOIN `lojadejogos` lojadejogos ON compra.`lojaDeJogos_idlojaDeJogos` = lojadejogos.`idlojaDeJogos`]]>
+     `usuario` usuario]]>
 	</queryString>
-	<field name="idcompra" class="java.lang.Integer">
+	<field name="idusuario" class="java.lang.Integer">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="data" class="java.sql.Date">
+	<field name="login" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="hora" class="java.sql.Time">
+	<field name="senha" class="java.lang.String">
 		<fieldDescription><![CDATA[]]></fieldDescription>
 	</field>
-	<field name="jogador.nome" class="java.lang.String"/>
-	<field name="jogo.nome" class="java.lang.String"/>
-	<field name="lojaDeJogos.nome" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
 	<title>
-		<band height="79" splitType="Stretch">
+		<band height="48" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="0" width="555" height="79" uuid="da1e8a12-66f9-4497-8675-2f83151cc6b7"/>
-				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Arial" size="26" isBold="true"/>
+				<reportElement x="108" y="0" width="325" height="38" uuid="8509e503-82f7-4d0b-80af-ad8e135c82df"/>
+				<textElement textAlignment="Center">
+					<font size="28" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Relatório de Compra de Jogos]]></text>
+				<text><![CDATA[Relatório de Usuários]]></text>
 			</staticText>
 		</band>
 	</title>
 	<columnHeader>
 		<band height="26" splitType="Stretch">
 			<staticText>
-				<reportElement x="0" y="2" width="100" height="20" uuid="3dbdcc27-eaff-4430-a4c3-218b14011887"/>
-				<text><![CDATA[idcompra]]></text>
+				<reportElement x="0" y="0" width="188" height="20" uuid="a5bb31cc-14f9-4e51-96fa-235e89fd54cc"/>
+				<text><![CDATA[ID]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="100" y="2" width="100" height="20" uuid="44460922-1af3-46ae-b5be-8e71a101cc5d"/>
-				<text><![CDATA[data]]></text>
+				<reportElement x="188" y="0" width="178" height="20" uuid="6f18b163-8bb5-4202-9a5d-6fa943349180"/>
+				<text><![CDATA[Login]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="200" y="2" width="100" height="20" uuid="8f4cc88f-4c50-4fa3-b244-5631d6d36c61"/>
-				<text><![CDATA[hora]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="300" y="2" width="100" height="20" uuid="dff7e918-0b28-4630-8e16-115fd25d61b2"/>
-				<text><![CDATA[jogador.nome]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="400" y="0" width="100" height="20" uuid="0d4185d8-15ce-4cd6-ac91-ab14c57a7deb"/>
-				<text><![CDATA[jogo.nome]]></text>
-			</staticText>
-			<staticText>
-				<reportElement x="500" y="2" width="45" height="20" uuid="77c80efa-a30d-4f7a-b556-238084f6c64e"/>
-				<text><![CDATA[lojaDeJogos.nome]]></text>
+				<reportElement x="366" y="0" width="189" height="20" uuid="08ef8644-f190-4e1f-8b83-000a0607a008"/>
+				<text><![CDATA[Senha]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
 	<detail>
-		<band height="23" splitType="Stretch">
+		<band height="24" splitType="Stretch">
 			<textField>
-				<reportElement x="0" y="1" width="100" height="20" uuid="ac95daf3-a605-4b89-a970-a56231e65c2d"/>
-				<textFieldExpression><![CDATA[$F{idcompra}]]></textFieldExpression>
+				<reportElement x="0" y="0" width="188" height="20" uuid="c6acd35b-ec21-49bc-ad15-19db29eecb48"/>
+				<textFieldExpression><![CDATA[$F{idusuario}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="100" y="0" width="100" height="20" uuid="754fd84b-6191-4995-8e9e-549214e678e3"/>
-				<textFieldExpression><![CDATA[$F{data}]]></textFieldExpression>
+				<reportElement x="188" y="0" width="178" height="20" uuid="a6f56616-23c3-495f-b6c6-ed022791d809"/>
+				<textFieldExpression><![CDATA[$F{login}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="200" y="1" width="100" height="20" uuid="1705c3d9-77a6-4351-a724-a9713434d092"/>
-				<textFieldExpression><![CDATA[$F{hora}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="300" y="1" width="100" height="20" uuid="f52dcfb4-6aca-400f-a9e4-60416053235f"/>
-				<textFieldExpression><![CDATA[$F{jogador.nome}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="400" y="1" width="100" height="20" uuid="95de27d0-53a6-4d46-bb3e-b6f79f8feefa"/>
-				<textFieldExpression><![CDATA[$F{jogo.nome}]]></textFieldExpression>
-			</textField>
-			<textField>
-				<reportElement x="500" y="0" width="55" height="20" uuid="de396dec-f506-455f-83ed-9e054d4350a3"/>
-				<textFieldExpression><![CDATA[$F{lojaDeJogos.nome}]]></textFieldExpression>
+				<reportElement x="366" y="0" width="189" height="20" uuid="5cb69a0b-2a2b-473c-9271-201d3c42fb78"/>
+				<textFieldExpression><![CDATA[$F{senha}]]></textFieldExpression>
 			</textField>
 		</band>
 	</detail>
