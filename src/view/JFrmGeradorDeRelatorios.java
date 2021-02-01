@@ -44,6 +44,8 @@ public class JFrmGeradorDeRelatorios extends javax.swing.JFrame {
         listLojaDeJogo = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : org.jdesktop.observablecollections.ObservableCollections.observableList(queryLojaDeJogo.getResultList());
         queryCompra = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("select c from Compra c");
         listCompra = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : org.jdesktop.observablecollections.ObservableCollections.observableList(queryCompra.getResultList());
+        queryUsuario = java.beans.Beans.isDesignTime() ? null : entityManager.createQuery("select u from Usuario u");
+        listUsuario = java.beans.Beans.isDesignTime() ? java.util.Collections.emptyList() : org.jdesktop.observablecollections.ObservableCollections.observableList(queryUsuario.getResultList());
         jPanel4 = new javax.swing.JPanel();
         jPanel1 = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
@@ -254,10 +256,10 @@ public class JFrmGeradorDeRelatorios extends javax.swing.JFrame {
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
-        JRBeanCollectionDataSource dados = new JRBeanCollectionDataSource(listCompra, false);
+        JRBeanCollectionDataSource dados = new JRBeanCollectionDataSource(listUsuario, false);
         try {
             
-            JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/relatorioBlank.jasper", null, dados);
+            JasperPrint relatorio = JasperFillManager.fillReport("./relatorios/relatorioUsuarios.jasper", null, dados);
             
 //            
             JasperViewer visualizador = new JasperViewer(relatorio, false);
@@ -363,9 +365,11 @@ public class JFrmGeradorDeRelatorios extends javax.swing.JFrame {
     private java.util.List<Jogador> listJogador;
     private java.util.List<Jogo> listJogo;
     private java.util.List<Lojadejogos> listLojaDeJogo;
+    private java.util.List<Usuario> listUsuario;
     private javax.persistence.Query queryCompra;
     private javax.persistence.Query queryJogador;
     private javax.persistence.Query queryJogo;
     private javax.persistence.Query queryLojaDeJogo;
+    private javax.persistence.Query queryUsuario;
     // End of variables declaration//GEN-END:variables
 }
