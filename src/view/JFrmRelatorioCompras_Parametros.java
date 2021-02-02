@@ -9,6 +9,7 @@ import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -27,6 +28,8 @@ public class JFrmRelatorioCompras_Parametros extends javax.swing.JFrame {
      */
     public JFrmRelatorioCompras_Parametros() {
         initComponents();
+        ImageIcon img = new javax.swing.ImageIcon(getClass().getResource("/img/icone.png"));
+        this.setIconImage(img.getImage());
     }
 
     /**
@@ -50,7 +53,7 @@ public class JFrmRelatorioCompras_Parametros extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
-        setTitle("Formulário de relatório pelo nome");
+        setTitle("Pesquisa de Compras - Games Report");
         getContentPane().setLayout(null);
 
         jPanel1.setBackground(new java.awt.Color(237, 250, 255));

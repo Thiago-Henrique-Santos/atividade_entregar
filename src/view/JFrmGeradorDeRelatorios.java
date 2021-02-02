@@ -7,6 +7,7 @@ package view;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.ImageIcon;
 import net.sf.jasperreports.engine.JRException;
 import net.sf.jasperreports.engine.JasperFillManager;
 import net.sf.jasperreports.engine.JasperPrint;
@@ -24,6 +25,8 @@ public class JFrmGeradorDeRelatorios extends javax.swing.JFrame {
      */
     public JFrmGeradorDeRelatorios() {
         initComponents();
+        ImageIcon img = new javax.swing.ImageIcon(getClass().getResource("/img/icone.png"));
+        this.setIconImage(img.getImage());
     }
 
     /**
@@ -54,6 +57,7 @@ public class JFrmGeradorDeRelatorios extends javax.swing.JFrame {
         jButton4 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Gerador de Relatórios - Games Report");
         setBackground(new java.awt.Color(102, 102, 255));
 
         jPanel5.setBackground(new java.awt.Color(153, 153, 255));

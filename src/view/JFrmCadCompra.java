@@ -10,6 +10,7 @@ import java.beans.Beans;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.RollbackException;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -543,7 +544,9 @@ public class JFrmCadCompra extends JPanel {
                 frame.pack();
                 frame.setSize(775, 570);
                 frame.setLocationRelativeTo(null);
-                frame.setTitle("Formulário de cadastro de compra de jogos");
+                frame.setTitle("Cadastro de Compra - Games Report");
+                ImageIcon img = new javax.swing.ImageIcon(getClass().getResource("/img/icone.png"));
+                frame.setIconImage(img.getImage());
                 frame.setVisible(true);
             }
         });

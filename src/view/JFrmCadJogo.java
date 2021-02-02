@@ -10,6 +10,7 @@ import java.beans.Beans;
 import java.util.ArrayList;
 import java.util.List;
 import javax.persistence.RollbackException;
+import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
@@ -445,6 +446,9 @@ public class JFrmCadJogo extends JPanel {
                 frame.setContentPane(new JFrmCadJogo());
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
+                frame.setTitle("Cadastro de Jogo - Games Report");
+                ImageIcon img = new javax.swing.ImageIcon(getClass().getResource("/img/icone.png"));
+                frame.setIconImage(img.getImage());
                 frame.setVisible(true);
             }
         });

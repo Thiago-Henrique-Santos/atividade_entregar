@@ -5,6 +5,7 @@
  */
 package view;
 
+import javax.swing.ImageIcon;
 import javax.swing.JOptionPane;
 
 /**
@@ -18,6 +19,8 @@ public class JFrmLogin extends javax.swing.JFrame {
      */
     public JFrmLogin() {
         initComponents();
+        ImageIcon img = new javax.swing.ImageIcon(getClass().getResource("/img/icone.png"));
+        this.setIconImage(img.getImage());
     }
 
     /**
@@ -44,6 +47,7 @@ public class JFrmLogin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login - Games Report");
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));

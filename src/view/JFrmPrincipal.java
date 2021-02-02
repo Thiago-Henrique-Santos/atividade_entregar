@@ -5,6 +5,8 @@
  */
 package view;
 
+import javax.swing.ImageIcon;
+
 /**
  *
  * @author Pio
@@ -16,6 +18,8 @@ public class JFrmPrincipal extends javax.swing.JFrame {
      */
     public JFrmPrincipal() {
         initComponents();
+        ImageIcon img = new javax.swing.ImageIcon(getClass().getResource("/img/icone.png"));
+        this.setIconImage(img.getImage());
     }
 
     /**
@@ -53,6 +57,7 @@ public class JFrmPrincipal extends javax.swing.JFrame {
         jMenuItem2.setText("jMenuItem2");
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Games Report");
         setExtendedState(6);
 
         jToolBar1.setRollover(true);
