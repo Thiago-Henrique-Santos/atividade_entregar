@@ -446,6 +446,7 @@ public class JFrmCadJogo extends JPanel {
                 frame.setContentPane(new JFrmCadJogo());
                 frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
+                frame.setLocationRelativeTo(null);
                 frame.setTitle("Cadastro de Jogo - Games Report");
                 ImageIcon img = new javax.swing.ImageIcon(getClass().getResource("/img/icone.png"));
                 frame.setIconImage(img.getImage());

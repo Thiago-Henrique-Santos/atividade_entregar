@@ -314,8 +314,9 @@ public class JFrmCadLojaDeJogos extends JPanel {
             public void run() {
                 JFrame frame = new JFrame();
                 frame.setContentPane(new JFrmCadLojaDeJogos());
-                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
                 frame.pack();
+                frame.setLocationRelativeTo(null);
                 frame.setTitle("Cadastro de Loja de Jogos - Games Report");
                 ImageIcon img = new javax.swing.ImageIcon(getClass().getResource("/img/icone.png"));
                 frame.setIconImage(img.getImage());
