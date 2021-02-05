@@ -298,7 +298,7 @@ public class JFrmCadJogador extends JPanel {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         int[] selected = masterTable.getSelectedRows();
-         if (selected.length > 0) {
+        if (selected.length > 0) {
             int r = JOptionPane.showConfirmDialog(null, "Deseja excluir o registro?", "Confirmação", JOptionPane.YES_NO_OPTION);
             if (r == 0) {
                 List<view.Jogador> toRemove = new ArrayList<view.Jogador>(selected.length);

@@ -12,6 +12,7 @@ import java.util.List;
 import javax.persistence.RollbackException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -230,13 +231,23 @@ public class JFrmCadLojaDeJogos extends JPanel {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         int[] selected = masterTable.getSelectedRows();
-        List<view.Lojadejogos> toRemove = new ArrayList<view.Lojadejogos>(selected.length);
-        for (int idx = 0; idx < selected.length; idx++) {
-            view.Lojadejogos l = list.get(masterTable.convertRowIndexToModel(selected[idx]));
-            toRemove.add(l);
-            entityManager.remove(l);
+        if (selected.length > 0) {
+            int r = JOptionPane.showConfirmDialog(null, "Deseja excluir o registro?", "Confirmação", JOptionPane.YES_NO_OPTION);
+            if (r == 0) {
+                List<view.Lojadejogos> toRemove = new ArrayList<view.Lojadejogos>(selected.length);
+                for (int idx = 0; idx < selected.length; idx++) {
+                    view.Lojadejogos u = list.get(masterTable.convertRowIndexToModel(selected[idx]));
+                    if(u.getCompras().size() > 0){
+                        JOptionPane.showMessageDialog(null, "O jogo " + u.getNome() + " está incluido em compras, remova elas primeiro.");
+                    }else{
+                    toRemove.add(u);
+                    entityManager.remove(u);
+                    }
+                }
+                list.removeAll(toRemove);
+                saveButton.doClick();
+            }
         }
-        list.removeAll(toRemove);
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed

@@ -12,6 +12,7 @@ import java.util.List;
 import javax.persistence.RollbackException;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 
 /**
@@ -81,7 +82,7 @@ public class JFrmCadJogo extends JPanel {
         masterScrollPane.setViewportView(masterTable);
 
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
+        jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/delete.png"))); // NOI18N
 
         newButton.setText("Novo");
         newButton.addActionListener(formListener);
@@ -96,7 +97,7 @@ public class JFrmCadJogo extends JPanel {
         saveButton.addActionListener(formListener);
 
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/delete.png"))); // NOI18N
+        jLabel3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
 
         refreshButton.setText("Cancelar");
         refreshButton.addActionListener(formListener);
@@ -347,13 +348,23 @@ public class JFrmCadJogo extends JPanel {
 
     private void deleteButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_deleteButtonActionPerformed
         int[] selected = masterTable.getSelectedRows();
-        List<view.Jogo> toRemove = new ArrayList<view.Jogo>(selected.length);
-        for (int idx = 0; idx < selected.length; idx++) {
-            view.Jogo j = list.get(masterTable.convertRowIndexToModel(selected[idx]));
-            toRemove.add(j);
-            entityManager.remove(j);
+        if (selected.length > 0) {
+            int r = JOptionPane.showConfirmDialog(null, "Deseja excluir o registro?", "Confirmação", JOptionPane.YES_NO_OPTION);
+            if (r == 0) {
+                List<view.Jogo> toRemove = new ArrayList<view.Jogo>(selected.length);
+                for (int idx = 0; idx < selected.length; idx++) {
+                    view.Jogo u = list.get(masterTable.convertRowIndexToModel(selected[idx]));
+                    if(u.getCompras().size() > 0){
+                        JOptionPane.showMessageDialog(null, "O jogo " + u.getNome() + " está incluido em compras, remova elas primeiro.");
+                    }else{
+                    toRemove.add(u);
+                    entityManager.remove(u);
+                    }
+                }
+                list.removeAll(toRemove);
+                saveButton.doClick();
+            }
         }
-        list.removeAll(toRemove);
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
