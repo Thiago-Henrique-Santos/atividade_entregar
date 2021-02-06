@@ -48,6 +48,7 @@ public class JFrmLogin extends javax.swing.JFrame {
         jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setTitle("Login - GamesReport");
         setUndecorated(true);
 
         jPanel1.setBackground(new java.awt.Color(153, 153, 255));
