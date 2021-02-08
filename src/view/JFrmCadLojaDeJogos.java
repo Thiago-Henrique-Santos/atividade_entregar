@@ -255,7 +255,7 @@ public class JFrmCadLojaDeJogos extends JPanel {
                 for (int idx = 0; idx < selected.length; idx++) {
                     view.Lojadejogos u = list.get(masterTable.convertRowIndexToModel(selected[idx]));
                     if(u.getCompras().size() > 0){
-                        JOptionPane.showMessageDialog(null, "O jogo " + u.getNome() + " está incluido em compras, remova elas primeiro.");
+                        JOptionPane.showMessageDialog(null, "A loja " + u.getNome() + " está incluida em compras, remova elas primeiro.");
                     }else{
                     toRemove.add(u);
                     entityManager.remove(u);
