@@ -283,6 +283,14 @@ public class JFrmCadJogador extends JPanel {
         }
     }// </editor-fold>//GEN-END:initComponents
 
+    public void resetarCampos(){
+        idjogadorField.setText(null);
+        nomeField.setText(null);
+        idadeField.setText(null);
+        jFormattedTextField1.setText(null);
+        enderecoField.setText(null);
+        refreshButton.doClick();
+    }
     
     @SuppressWarnings("unchecked")
     private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
@@ -330,6 +338,7 @@ public class JFrmCadJogador extends JPanel {
         try {
             entityManager.getTransaction().commit();
             entityManager.getTransaction().begin();
+            resetarCampos();
         } catch (RollbackException rex) {
             rex.printStackTrace();
             entityManager.getTransaction().begin();

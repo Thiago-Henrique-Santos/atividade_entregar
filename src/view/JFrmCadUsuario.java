@@ -75,8 +75,8 @@ public class JFrmCadUsuario extends JPanel {
 
         deleteButton.addActionListener(formListener);
 
-        refreshButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/recarregar.png"))); // NOI18N
-        refreshButton.setText("Recarregar ");
+        refreshButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/cancel.png"))); // NOI18N
+        refreshButton.setText("Cancelar");
         refreshButton.addActionListener(formListener);
 
         saveButton.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/save.png"))); // NOI18N
@@ -231,21 +231,28 @@ public class JFrmCadUsuario extends JPanel {
     private class FormListener implements java.awt.event.ActionListener {
         FormListener() {}
         public void actionPerformed(java.awt.event.ActionEvent evt) {
-            if (evt.getSource() == saveButton) {
-                JFrmCadUsuario.this.saveButtonActionPerformed(evt);
-            }
-            else if (evt.getSource() == refreshButton) {
-                JFrmCadUsuario.this.refreshButtonActionPerformed(evt);
-            }
-            else if (evt.getSource() == newButton) {
+            if (evt.getSource() == newButton) {
                 JFrmCadUsuario.this.newButtonActionPerformed(evt);
             }
             else if (evt.getSource() == deleteButton) {
                 JFrmCadUsuario.this.deleteButtonActionPerformed(evt);
             }
+            else if (evt.getSource() == refreshButton) {
+                JFrmCadUsuario.this.refreshButtonActionPerformed(evt);
+            }
+            else if (evt.getSource() == saveButton) {
+                JFrmCadUsuario.this.saveButtonActionPerformed(evt);
+            }
         }
     }// </editor-fold>//GEN-END:initComponents
 
+    public void resetarCampos(){
+        idusuarioField.setText(null);
+        loginField.setText(null);
+        senhaField.setText(null);
+        refreshButton.doClick();
+    }
+    
     @SuppressWarnings("unchecked")
     private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
         entityManager.getTransaction().rollback();
@@ -288,6 +295,7 @@ public class JFrmCadUsuario extends JPanel {
         try {
             entityManager.getTransaction().commit();
             entityManager.getTransaction().begin();
+            resetarCampos();
         } catch (RollbackException rex) {
             rex.printStackTrace();
             entityManager.getTransaction().begin();

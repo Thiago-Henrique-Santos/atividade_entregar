@@ -333,6 +333,12 @@ public class JFrmCadJogo extends JPanel {
         }
     }// </editor-fold>//GEN-END:initComponents
 
+    public void resetarCampos(){
+        idjogoField.setText(null);
+        nomeField.setText(null);
+        jComboBox1.setSelectedIndex(0);
+        refreshButton.doClick();
+    }
     
     @SuppressWarnings("unchecked")
     private void refreshButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_refreshButtonActionPerformed
@@ -380,6 +386,7 @@ public class JFrmCadJogo extends JPanel {
         try {
             entityManager.getTransaction().commit();
             entityManager.getTransaction().begin();
+            resetarCampos();
         } catch (RollbackException rex) {
             rex.printStackTrace();
             entityManager.getTransaction().begin();

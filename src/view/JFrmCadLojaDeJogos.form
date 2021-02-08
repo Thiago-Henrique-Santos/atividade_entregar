@@ -301,7 +301,6 @@
           <Image iconType="3" name="/img/delete.png"/>
         </Property>
         <Property name="text" type="java.lang.String" value="Deletar"/>
-        <Property name="enabled" type="boolean" value="true"/>
       </Properties>
       <BindingProperties>
         <BindingProperty name="enabled" source="masterTable" sourcePath="${selectedElement != null}" target="deleteButton" targetPath="enabled" updateStrategy="1" immediately="false"/>
