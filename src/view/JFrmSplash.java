@@ -7,6 +7,7 @@ package view;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import javax.swing.ImageIcon;
 import javax.swing.Timer;
 
 /**
@@ -21,6 +22,8 @@ public class JFrmSplash extends javax.swing.JFrame {
      */
     public JFrmSplash() {
         initComponents();
+        ImageIcon img = new javax.swing.ImageIcon(getClass().getResource("/img/icone.png"));
+        this.setIconImage(img.getImage());
         
         timer = new Timer(100, new ActionListener() {
             @Override
@@ -49,6 +52,7 @@ public class JFrmSplash extends javax.swing.JFrame {
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
+        setTitle("Loading - GamesReport");
         setMinimumSize(new java.awt.Dimension(500, 280));
         setUndecorated(true);
         setPreferredSize(new java.awt.Dimension(500, 280));
