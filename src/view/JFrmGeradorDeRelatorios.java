@@ -5,6 +5,11 @@
  */
 package view;
 
+import model.Lojadejogos;
+import model.Jogador;
+import model.Jogo;
+import model.Usuario;
+import model.Compra;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.swing.ImageIcon;

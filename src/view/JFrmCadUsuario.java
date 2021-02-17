@@ -50,11 +50,11 @@ public class JFrmCadUsuario extends JPanel {
         idusuarioField = new javax.swing.JTextField();
         loginField = new javax.swing.JTextField();
         senhaLabel = new javax.swing.JLabel();
-        senhaField = new javax.swing.JTextField();
         loginLabel = new javax.swing.JLabel();
         idusuarioLabel = new javax.swing.JLabel();
         masterScrollPane = new javax.swing.JScrollPane();
         masterTable = new javax.swing.JTable();
+        senhaField = new javax.swing.JPasswordField();
         jLabel1 = new javax.swing.JLabel();
 
         FormListener formListener = new FormListener();
@@ -99,12 +99,6 @@ public class JFrmCadUsuario extends JPanel {
 
         senhaLabel.setText("Senha:");
 
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.senha}"), senhaField, org.jdesktop.beansbinding.BeanProperty.create("text"));
-        binding.setSourceUnreadableValue("null");
-        bindingGroup.addBinding(binding);
-        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), senhaField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
-        bindingGroup.addBinding(binding);
-
         loginLabel.setText("Login:");
 
         idusuarioLabel.setText("Idusuario:");
@@ -119,9 +113,20 @@ public class JFrmCadUsuario extends JPanel {
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${senha}"));
         columnBinding.setColumnName("Senha");
         columnBinding.setColumnClass(String.class);
+        columnBinding.setEditable(false);
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();
         masterScrollPane.setViewportView(masterTable);
+        if (masterTable.getColumnModel().getColumnCount() > 0) {
+            masterTable.getColumnModel().getColumn(2).setMinWidth(0);
+            masterTable.getColumnModel().getColumn(2).setPreferredWidth(0);
+            masterTable.getColumnModel().getColumn(2).setMaxWidth(0);
+        }
+
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement.senha}"), senhaField, org.jdesktop.beansbinding.BeanProperty.create("text"));
+        bindingGroup.addBinding(binding);
+        binding = org.jdesktop.beansbinding.Bindings.createAutoBinding(org.jdesktop.beansbinding.AutoBinding.UpdateStrategy.READ_WRITE, masterTable, org.jdesktop.beansbinding.ELProperty.create("${selectedElement != null}"), senhaField, org.jdesktop.beansbinding.BeanProperty.create("enabled"));
+        bindingGroup.addBinding(binding);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -130,20 +135,23 @@ public class JFrmCadUsuario extends JPanel {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(masterScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(idusuarioLabel)
+                            .addComponent(idusuarioField, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                                     .addComponent(loginLabel, javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(loginField, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 283, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                .addGap(6, 6, 6)
                                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addComponent(senhaLabel)
-                                    .addComponent(senhaField)))
-                            .addComponent(idusuarioLabel)
-                            .addComponent(idusuarioField, javax.swing.GroupLayout.PREFERRED_SIZE, 436, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 0, Short.MAX_VALUE))
-                    .addComponent(masterScrollPane, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 0, Short.MAX_VALUE))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addGap(6, 6, 6)
+                                        .addComponent(senhaLabel))
+                                    .addGroup(jPanel1Layout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                        .addComponent(senhaField)))))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -270,9 +278,9 @@ public class JFrmCadUsuario extends JPanel {
         if (selected.length > 0) {
             int r = JOptionPane.showConfirmDialog(null, "Deseja excluir o registro?", "Confirmação", JOptionPane.YES_NO_OPTION);
             if (r == 0) {
-                List<view.Usuario> toRemove = new ArrayList<view.Usuario>(selected.length);
+                List<model.Usuario> toRemove = new ArrayList<model.Usuario>(selected.length);
                 for (int idx = 0; idx < selected.length; idx++) {
-                    view.Usuario u = list.get(masterTable.convertRowIndexToModel(selected[idx]));
+                    model.Usuario u = list.get(masterTable.convertRowIndexToModel(selected[idx]));
                     toRemove.add(u);
                     entityManager.remove(u);
                 }
@@ -283,7 +291,7 @@ public class JFrmCadUsuario extends JPanel {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
-        view.Usuario u = new view.Usuario();
+        model.Usuario u = new model.Usuario();
         entityManager.persist(u);
         list.add(u);
         int row = list.size() - 1;
@@ -299,8 +307,8 @@ public class JFrmCadUsuario extends JPanel {
         } catch (RollbackException rex) {
             rex.printStackTrace();
             entityManager.getTransaction().begin();
-            List<view.Usuario> merged = new ArrayList<view.Usuario>(list.size());
-            for (view.Usuario u : list) {
+            List<model.Usuario> merged = new ArrayList<model.Usuario>(list.size());
+            for (model.Usuario u : list) {
                 merged.add(entityManager.merge(u));
             }
             list.clear();
@@ -317,7 +325,7 @@ public class JFrmCadUsuario extends JPanel {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel3;
-    private java.util.List<view.Usuario> list;
+    private java.util.List<model.Usuario> list;
     private javax.swing.JTextField loginField;
     private javax.swing.JLabel loginLabel;
     private javax.swing.JScrollPane masterScrollPane;
@@ -326,7 +334,7 @@ public class JFrmCadUsuario extends JPanel {
     private javax.persistence.Query query;
     private javax.swing.JButton refreshButton;
     private javax.swing.JButton saveButton;
-    private javax.swing.JTextField senhaField;
+    private javax.swing.JPasswordField senhaField;
     private javax.swing.JLabel senhaLabel;
     private org.jdesktop.beansbinding.BindingGroup bindingGroup;
     // End of variables declaration//GEN-END:variables

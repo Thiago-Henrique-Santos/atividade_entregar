@@ -357,9 +357,9 @@ public class JFrmCadJogo extends JPanel {
         if (selected.length > 0) {
             int r = JOptionPane.showConfirmDialog(null, "Deseja excluir o registro?", "Confirmação", JOptionPane.YES_NO_OPTION);
             if (r == 0) {
-                List<view.Jogo> toRemove = new ArrayList<view.Jogo>(selected.length);
+                List<model.Jogo> toRemove = new ArrayList<model.Jogo>(selected.length);
                 for (int idx = 0; idx < selected.length; idx++) {
-                    view.Jogo u = list.get(masterTable.convertRowIndexToModel(selected[idx]));
+                    model.Jogo u = list.get(masterTable.convertRowIndexToModel(selected[idx]));
                     if(u.getCompras().size() > 0){
                         JOptionPane.showMessageDialog(null, "O jogo " + u.getNome() + " está incluido em compras, remova elas primeiro.");
                     }else{
@@ -374,7 +374,7 @@ public class JFrmCadJogo extends JPanel {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
-        view.Jogo j = new view.Jogo();
+        model.Jogo j = new model.Jogo();
         entityManager.persist(j);
         list.add(j);
         int row = list.size() - 1;
@@ -390,8 +390,8 @@ public class JFrmCadJogo extends JPanel {
         } catch (RollbackException rex) {
             rex.printStackTrace();
             entityManager.getTransaction().begin();
-            List<view.Jogo> merged = new ArrayList<view.Jogo>(list.size());
-            for (view.Jogo j : list) {
+            List<model.Jogo> merged = new ArrayList<model.Jogo>(list.size());
+            for (model.Jogo j : list) {
                 merged.add(entityManager.merge(j));
             }
             list.clear();
@@ -422,7 +422,7 @@ public class JFrmCadJogo extends JPanel {
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
     private javax.swing.JPanel jPanel4;
-    private java.util.List<view.Jogo> list;
+    private java.util.List<model.Jogo> list;
     private javax.swing.JScrollPane masterScrollPane;
     private javax.swing.JTable masterTable;
     private javax.swing.JButton newButton;

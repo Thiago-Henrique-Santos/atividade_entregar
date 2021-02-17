@@ -1,0 +1,7 @@
+Parabéns o projeto estava muito bom.
+Nota final do bimestre: 10 pontos
+
+As seguintes melhorias poderiam ser realizadas:
+1) Faltou definir a classe principal do programa (Splash)
+2) O formulário de cadastro de usuário poderia ter o campo senha trocado para o tipo JPasswordField e esconder a coluna de senha
+3) O renderizador criado foi para hora, mas o nome dado ao arquivo foi DateCellRender

@@ -251,9 +251,9 @@ public class JFrmCadLojaDeJogos extends JPanel {
         if (selected.length > 0) {
             int r = JOptionPane.showConfirmDialog(null, "Deseja excluir o registro?", "Confirmação", JOptionPane.YES_NO_OPTION);
             if (r == 0) {
-                List<view.Lojadejogos> toRemove = new ArrayList<view.Lojadejogos>(selected.length);
+                List<model.Lojadejogos> toRemove = new ArrayList<model.Lojadejogos>(selected.length);
                 for (int idx = 0; idx < selected.length; idx++) {
-                    view.Lojadejogos u = list.get(masterTable.convertRowIndexToModel(selected[idx]));
+                    model.Lojadejogos u = list.get(masterTable.convertRowIndexToModel(selected[idx]));
                     if(u.getCompras().size() > 0){
                         JOptionPane.showMessageDialog(null, "A loja " + u.getNome() + " está incluida em compras, remova elas primeiro.");
                     }else{
@@ -268,7 +268,7 @@ public class JFrmCadLojaDeJogos extends JPanel {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
-        view.Lojadejogos l = new view.Lojadejogos();
+        model.Lojadejogos l = new model.Lojadejogos();
         entityManager.persist(l);
         list.add(l);
         int row = list.size() - 1;
@@ -284,8 +284,8 @@ public class JFrmCadLojaDeJogos extends JPanel {
         } catch (RollbackException rex) {
             rex.printStackTrace();
             entityManager.getTransaction().begin();
-            List<view.Lojadejogos> merged = new ArrayList<view.Lojadejogos>(list.size());
-            for (view.Lojadejogos l : list) {
+            List<model.Lojadejogos> merged = new ArrayList<model.Lojadejogos>(list.size());
+            for (model.Lojadejogos l : list) {
                 merged.add(entityManager.merge(l));
             }
             list.clear();
@@ -303,7 +303,7 @@ public class JFrmCadLojaDeJogos extends JPanel {
     private javax.swing.JTextField idlojaDeJogosField;
     private javax.swing.JLabel idlojaDeJogosLabel;
     private javax.swing.JFormattedTextField jFormattedTextField1;
-    private java.util.List<view.Lojadejogos> list;
+    private java.util.List<model.Lojadejogos> list;
     private javax.swing.JScrollPane masterScrollPane;
     private javax.swing.JTable masterTable;
     private javax.swing.JButton newButton;

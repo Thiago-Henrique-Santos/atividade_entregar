@@ -31,7 +31,7 @@
         <Property name="observable" type="boolean" value="true"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;view.Usuario&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;model.Usuario&gt;"/>
         <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="2"/>
       </AuxValues>
@@ -204,25 +204,30 @@
                   <Group type="102" attributes="0">
                       <EmptySpace max="-2" attributes="0"/>
                       <Group type="103" groupAlignment="0" attributes="0">
+                          <Component id="masterScrollPane" alignment="1" pref="0" max="32767" attributes="0"/>
                           <Group type="102" attributes="0">
                               <Group type="103" groupAlignment="0" max="-2" attributes="0">
+                                  <Component id="idusuarioLabel" alignment="0" min="-2" max="-2" attributes="0"/>
+                                  <Component id="idusuarioField" alignment="0" min="-2" pref="436" max="-2" attributes="0"/>
                                   <Group type="102" alignment="0" attributes="0">
                                       <Group type="103" groupAlignment="1" max="-2" attributes="0">
                                           <Component id="loginLabel" alignment="0" min="-2" max="-2" attributes="0"/>
                                           <Component id="loginField" alignment="0" min="-2" pref="283" max="-2" attributes="0"/>
                                       </Group>
-                                      <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
                                       <Group type="103" groupAlignment="0" attributes="0">
-                                          <Component id="senhaLabel" min="-2" max="-2" attributes="0"/>
-                                          <Component id="senhaField" max="32767" attributes="0"/>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace min="-2" pref="6" max="-2" attributes="0"/>
+                                              <Component id="senhaLabel" min="-2" max="-2" attributes="0"/>
+                                          </Group>
+                                          <Group type="102" attributes="0">
+                                              <EmptySpace max="-2" attributes="0"/>
+                                              <Component id="senhaField" max="32767" attributes="0"/>
+                                          </Group>
                                       </Group>
                                   </Group>
-                                  <Component id="idusuarioLabel" alignment="0" min="-2" max="-2" attributes="0"/>
-                                  <Component id="idusuarioField" alignment="0" min="-2" pref="436" max="-2" attributes="0"/>
                               </Group>
                               <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                           </Group>
-                          <Component id="masterScrollPane" alignment="1" pref="0" max="32767" attributes="0"/>
                       </Group>
                       <EmptySpace max="-2" attributes="0"/>
                   </Group>
@@ -277,14 +282,6 @@
                 <Property name="text" type="java.lang.String" value="Senha:"/>
               </Properties>
             </Component>
-            <Component class="javax.swing.JTextField" name="senhaField">
-              <BindingProperties>
-                <BindingProperty name="text" source="masterTable" sourcePath="${selectedElement.senha}" target="senhaField" targetPath="text" updateStrategy="0" immediately="false">
-                  <Property name="incompletePathValue" type="java.lang.String" value="null"/>
-                </BindingProperty>
-                <BindingProperty name="enabled" source="masterTable" sourcePath="${selectedElement != null}" target="senhaField" targetPath="enabled" updateStrategy="1" immediately="false"/>
-              </BindingProperties>
-            </Component>
             <Component class="javax.swing.JLabel" name="loginLabel">
               <Properties>
                 <Property name="text" type="java.lang.String" value="Login:"/>
@@ -316,7 +313,7 @@
                           <Editor/>
                           <Renderer/>
                         </Column>
-                        <Column maxWidth="-1" minWidth="-1" prefWidth="-1" resizable="true">
+                        <Column maxWidth="0" minWidth="0" prefWidth="0" resizable="true">
                           <Title/>
                           <Editor/>
                           <Renderer/>
@@ -340,6 +337,7 @@
                       <Subbinding sourcePath="${senha}">
                         <BindingParameter name="NAME" value="Senha"/>
                         <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="String.class"/>
+                        <BindingParameter name="javax.swing.binding.ParameterKeys.EDITABLE" value="false"/>
                       </Subbinding>
                     </BindingProperty>
                   </BindingProperties>
@@ -350,6 +348,12 @@
                 </Component>
               </SubComponents>
             </Container>
+            <Component class="javax.swing.JPasswordField" name="senhaField">
+              <BindingProperties>
+                <BindingProperty name="text" source="masterTable" sourcePath="${selectedElement.senha}" target="senhaField" targetPath="text" updateStrategy="0" immediately="false"/>
+                <BindingProperty name="enabled" source="masterTable" sourcePath="${selectedElement != null}" target="senhaField" targetPath="enabled" updateStrategy="0" immediately="false"/>
+              </BindingProperties>
+            </Component>
           </SubComponents>
         </Container>
         <Component class="javax.swing.JLabel" name="jLabel1">

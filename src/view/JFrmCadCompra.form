@@ -27,7 +27,7 @@
         <Property name="observable" type="boolean" value="true"/>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;view.Compra&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;model.Compra&gt;"/>
         <AuxValue name="JavaCodeGenerator_VariableLocal" type="java.lang.Boolean" value="false"/>
         <AuxValue name="JavaCodeGenerator_VariableModifier" type="java.lang.Integer" value="2"/>
       </AuxValues>
@@ -66,7 +66,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;view.Lojadejogos&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;model.Lojadejogos&gt;"/>
       </AuxValues>
     </Component>
     <Component class="javax.persistence.Query" name="jogoQuery">
@@ -84,7 +84,7 @@
         </Property>
       </Properties>
       <AuxValues>
-        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;view.Jogo&gt;"/>
+        <AuxValue name="JavaCodeGenerator_TypeParameters" type="java.lang.String" value="&lt;model.Jogo&gt;"/>
       </AuxValues>
     </Component>
   </NonVisualComponents>
@@ -183,15 +183,15 @@
               </Subbinding>
               <Subbinding sourcePath="${jogador}">
                 <BindingParameter name="NAME" value="Jogador"/>
-                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="view.Jogador.class"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="model.Jogador.class"/>
               </Subbinding>
               <Subbinding sourcePath="${lojaDeJogos}">
                 <BindingParameter name="NAME" value="Loja De Jogos"/>
-                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="view.Lojadejogos.class"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="model.Lojadejogos.class"/>
               </Subbinding>
               <Subbinding sourcePath="${jogo}">
                 <BindingParameter name="NAME" value="Jogo"/>
-                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="view.Jogo.class"/>
+                <BindingParameter name="javax.swing.binding.ParameterKeys.COLUMN_CLASS" value="model.Jogo.class"/>
               </Subbinding>
             </BindingProperty>
           </BindingProperties>

@@ -5,6 +5,7 @@
  */
 package view;
 
+import model.Usuario;
 import javax.swing.ImageIcon;
 import javax.swing.JFrame;
 import javax.swing.JOptionPane;

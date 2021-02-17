@@ -309,9 +309,9 @@ public class JFrmCadJogador extends JPanel {
         if (selected.length > 0) {
             int r = JOptionPane.showConfirmDialog(null, "Deseja excluir o registro?", "Confirmação", JOptionPane.YES_NO_OPTION);
             if (r == 0) {
-                List<view.Jogador> toRemove = new ArrayList<view.Jogador>(selected.length);
+                List<model.Jogador> toRemove = new ArrayList<model.Jogador>(selected.length);
                 for (int idx = 0; idx < selected.length; idx++) {
-                    view.Jogador u = list.get(masterTable.convertRowIndexToModel(selected[idx]));
+                    model.Jogador u = list.get(masterTable.convertRowIndexToModel(selected[idx]));
                     if(u.getCompras().size() > 0){
                         JOptionPane.showMessageDialog(null, "O jogador " + u.getNome() + " está incluido em compras, remova elas primeiro.");
                     }else{
@@ -326,7 +326,7 @@ public class JFrmCadJogador extends JPanel {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
-        view.Jogador j = new view.Jogador();
+        model.Jogador j = new model.Jogador();
         entityManager.persist(j);
         list.add(j);
         int row = list.size() - 1;
@@ -342,8 +342,8 @@ public class JFrmCadJogador extends JPanel {
         } catch (RollbackException rex) {
             rex.printStackTrace();
             entityManager.getTransaction().begin();
-            List<view.Jogador> merged = new ArrayList<view.Jogador>(list.size());
-            for (view.Jogador j : list) {
+            List<model.Jogador> merged = new ArrayList<model.Jogador>(list.size());
+            for (model.Jogador j : list) {
                 merged.add(entityManager.merge(j));
             }
             list.clear();
@@ -369,7 +369,7 @@ public class JFrmCadJogador extends JPanel {
     private javax.swing.JFormattedTextField jFormattedTextField1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
-    private java.util.List<view.Jogador> list;
+    private java.util.List<model.Jogador> list;
     private javax.swing.JScrollPane masterScrollPane;
     private javax.swing.JTable masterTable;
     private javax.swing.JButton newButton;

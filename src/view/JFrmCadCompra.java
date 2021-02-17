@@ -5,6 +5,7 @@
  */
 package view;
 
+import model.Jogador;
 import java.awt.EventQueue;
 import java.beans.Beans;
 import java.util.ArrayList;
@@ -97,13 +98,13 @@ public class JFrmCadCompra extends JPanel {
         columnBinding.setColumnClass(java.util.Date.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${jogador}"));
         columnBinding.setColumnName("Jogador");
-        columnBinding.setColumnClass(view.Jogador.class);
+        columnBinding.setColumnClass(model.Jogador.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${lojaDeJogos}"));
         columnBinding.setColumnName("Loja De Jogos");
-        columnBinding.setColumnClass(view.Lojadejogos.class);
+        columnBinding.setColumnClass(model.Lojadejogos.class);
         columnBinding = jTableBinding.addColumnBinding(org.jdesktop.beansbinding.ELProperty.create("${jogo}"));
         columnBinding.setColumnName("Jogo");
-        columnBinding.setColumnClass(view.Jogo.class);
+        columnBinding.setColumnClass(model.Jogo.class);
         bindingGroup.addBinding(jTableBinding);
         jTableBinding.bind();
         masterScrollPane.setViewportView(masterTable);
@@ -442,9 +443,9 @@ public class JFrmCadCompra extends JPanel {
         if (selected.length > 0) {
             int r = JOptionPane.showConfirmDialog(null, "Deseja excluir o registro?", "Confirmação", JOptionPane.YES_NO_OPTION);
             if (r == 0) {
-                List<view.Compra> toRemove = new ArrayList<view.Compra>(selected.length);
+                List<model.Compra> toRemove = new ArrayList<model.Compra>(selected.length);
                 for (int idx = 0; idx < selected.length; idx++) {
-                    view.Compra u = list.get(masterTable.convertRowIndexToModel(selected[idx]));
+                    model.Compra u = list.get(masterTable.convertRowIndexToModel(selected[idx]));
                     toRemove.add(u);
                     entityManager.remove(u);
                 }
@@ -455,7 +456,7 @@ public class JFrmCadCompra extends JPanel {
     }//GEN-LAST:event_deleteButtonActionPerformed
 
     private void newButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_newButtonActionPerformed
-        view.Compra c = new view.Compra();
+        model.Compra c = new model.Compra();
         entityManager.persist(c);
         list.add(c);
         int row = list.size() - 1;
@@ -471,8 +472,8 @@ public class JFrmCadCompra extends JPanel {
         } catch (RollbackException rex) {
             rex.printStackTrace();
             entityManager.getTransaction().begin();
-            List<view.Compra> merged = new ArrayList<view.Compra>(list.size());
-            for (view.Compra c : list) {
+            List<model.Compra> merged = new ArrayList<model.Compra>(list.size());
+            for (model.Compra c : list) {
                 merged.add(entityManager.merge(c));
             }
             list.clear();
@@ -512,12 +513,12 @@ public class JFrmCadCompra extends JPanel {
     private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel jogadorIdjogadorLabel;
     private javax.swing.JLabel jogoIdjogoLabel;
-    private java.util.List<view.Jogo> jogoList;
+    private java.util.List<model.Jogo> jogoList;
     private javax.persistence.Query jogoQuery;
-    private java.util.List<view.Compra> list;
+    private java.util.List<model.Compra> list;
     private java.util.List<Jogador> listJogador;
     private javax.swing.JLabel lojaDeJogosidlojaDeJogosLabel;
-    private java.util.List<view.Lojadejogos> lojadejogosList;
+    private java.util.List<model.Lojadejogos> lojadejogosList;
     private javax.persistence.Query lojadejogosQuery;
     private javax.swing.JScrollPane masterScrollPane;
     private javax.swing.JTable masterTable;
