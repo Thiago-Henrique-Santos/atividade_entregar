@@ -5,7 +5,7 @@ O tema escolhido pela equipe foi jogo, onde tem o jogador (usuário do software)
 
 # O que é possível fazer no sistema?
 
-*Cadastrar jogadores, jogos e lojas de jogos.
+*Cadastrar jogadores, jogos e lojas de jogos. E remover e atualizar os cadastros.
 
 *Ver todos os cadastros de todas as categorias.
 
@@ -13,5 +13,3 @@ O tema escolhido pela equipe foi jogo, onde tem o jogador (usuário do software)
 
 # Mais informações
 *Há uma janela splash e formulário para login no sistema.
-
-*ALGUMAS PARTES AINDA ESTÃO EM DESENVOLVIMENTO.
